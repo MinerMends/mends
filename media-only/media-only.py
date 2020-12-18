@@ -36,7 +36,9 @@ class Mediaonly(commands.Cog):
                 if len(message.attachments) > 1:
                     await self.delete(message, warning=f'{message.author.mention}, send 1 emoji at a time.')
                 elif not (message.attachments[0].filename.endswith('.png') or message.attachments[0].filename.endswith('.gif') or message.attachments[0].filename.endswith('.jpeg') or message.attachments[0].filename.endswith('.jpg') or message.attachments[0].filename.endswith('.mp4')):
-                    await self.delete(message, warning=f'{message.author.mention}, only png, gif, jpg, jpeg and mp4 files are allowed here 📷')
+                    embed=discord.Embed(color=0xf54242)
+                    embed.add_field(name="", value="\<:incorrect:780990204177154088> Only images/captions are allowed in this channel!", inline=False)
+                    await self.delete(message, warning=f'{embed=embed}')
 
             else:
                 await self.delete(message, warning=f'{message.author.mention}, only images + captions are allowed. If you wish to add a caption, edit your original message.')
