@@ -36,7 +36,7 @@ class Mediaonly(commands.Cog):
                 if len(message.attachments) > 1: #message.attachments[0].filename.endswith('.gif')
                     await self.delete(message, warning=f'{message.author.mention}, send 1 emoji at a time.')
                 elif message.content.startswith("https://"):
-                    return
+                    break
                 elif not (message.attachments[0].filename.endswith('.png') or message.attachments[0].filename.endswith('.jpeg') or message.attachments[0].filename.endswith('.jpg') or message.attachments[0].filename.endswith('.mp4')):
                     await self.delete(message, warning=f'{message.author.mention} <:incorrect:780990204177154088> Only images/captions/gifs are allowed in this channel!')
 
