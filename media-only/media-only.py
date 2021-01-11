@@ -29,7 +29,7 @@ class Mediaonly(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message):
         if self.config.get('status', True) and message.channel.id in self.config.get('channel_ids', []):
-            if message.content.startswith == "https://":
+            if message.content.startswith("https://"):
               #ignore
             else:
               
