@@ -31,20 +31,20 @@ class Mediaonly(commands.Cog):
         if self.config.get('status', True) and message.channel.id in self.config.get('channel_ids', []):
             if message.content == "hey":
               await self.delete(message, warning=f'{message.author.mention}, hey')
-              return None
-              
-            if message.author.bot:
-                await asyncio.sleep(5)
-                await self.delete(message, warning=None)
-
-            elif len(message.attachments):
-                if len(message.attachments) > 1: #message.attachments[0].filename.endswith('.gif')
-                    await self.delete(message, warning=f'{message.author.mention}, send 1 emoji at a time.')
-                elif not (message.attachments[0].filename.endswith('.png') or message.attachments[0].filename.endswith('.jpeg') or message.attachments[0].filename.endswith('.jpg') or message.attachments[0].filename.endswith('.mp4')):
-                    await self.delete(message, warning=f'{message.author.mention} <:incorrect:780990204177154088> Only images/captions/gifs are allowed in this channel!')
-
             else:
-                await self.delete(message, warning=f'{message.author.mention} <:incorrect:780990204177154088> Only images/captions/gifs are allowed in this channel!')
+              
+              if message.author.bot:
+                  await asyncio.sleep(5)
+                  await self.delete(message, warning=None)
+
+              elif len(message.attachments):
+                  if len(message.attachments) > 1: #message.attachments[0].filename.endswith('.gif')
+                      await self.delete(message, warning=f'{message.author.mention}, send 1 emoji at a time.')
+                  elif not (message.attachments[0].filename.endswith('.png') or message.attachments[0].filename.endswith('.jpeg') or message.attachments[0].filename.endswith('.jpg') or message.attachments[0].filename.endswith('.mp4')):
+                      await self.delete(message, warning=f'{message.author.mention} <:incorrect:780990204177154088> Only images/captions/gifs are allowed in this channel!')
+
+              else:
+                  await self.delete(message, warning=f'{message.author.mention} <:incorrect:780990204177154088> Only images/captions/gifs are allowed in this channel!')
 
 
     @checks.has_permissions(PermissionLevel.ADMINISTRATOR)
