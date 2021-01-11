@@ -31,6 +31,7 @@ class Mediaonly(commands.Cog):
         if self.config.get('status', True) and message.channel.id in self.config.get('channel_ids', []):
             if message.content == "hey":
               await self.delete(message, warning=f'{message.author.mention}, hey')
+              return
               
             if message.author.bot:
                 await asyncio.sleep(5)
