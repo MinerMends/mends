@@ -29,8 +29,8 @@ class Mediaonly(commands.Cog):
     @commands.Cog.listener()
     async def on_message(self, message):
         if self.config.get('status', True) and message.channel.id in self.config.get('channel_ids', []):
-            if message.content == "hey":
-              await self.delete(message, warning=f'{message.author.mention}, hey')
+            if message.content.startswith == "https://":
+              #ignore
             else:
               
               if message.author.bot:
